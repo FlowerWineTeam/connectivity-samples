@@ -52,6 +52,7 @@ public class MainActivity extends SampleActivityBase {
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            //包含titleBar
             BluetoothChatFragment fragment = new BluetoothChatFragment();
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
@@ -78,6 +79,7 @@ public class MainActivity extends SampleActivityBase {
         switch (item.getItemId()) {
             case R.id.menu_toggle_log:
                 mLogShown = !mLogShown;
+//                android视图切换动画：ViewAnimator类及其子类
                 ViewAnimator output = findViewById(R.id.sample_output);
                 if (mLogShown) {
                     output.setDisplayedChild(1);

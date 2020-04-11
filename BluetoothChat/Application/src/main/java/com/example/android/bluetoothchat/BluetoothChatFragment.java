@@ -228,6 +228,8 @@ public class BluetoothChatFragment extends Fragment {
             // Reset out string buffer to zero and clear the edit text field
             mOutStringBuffer.setLength(0);
             mOutEditText.setText(mOutStringBuffer);
+        }else {
+            Toast.makeText(getActivity(),"没有内容", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -307,7 +309,7 @@ public class BluetoothChatFragment extends Fragment {
                     byte[] writeBuf = (byte[]) msg.obj;
                     // construct a string from the buffer
                     String writeMessage = new String(writeBuf);
-                    mConversationArrayAdapter.add("Me:  " + writeMessage);
+                    mConversationArrayAdapter.add("自己:  " + writeMessage);
                     break;
                 case Constants.MESSAGE_READ:
                     byte[] readBuf = (byte[]) msg.obj;
@@ -319,7 +321,7 @@ public class BluetoothChatFragment extends Fragment {
                     // save the connected device's name
                     mConnectedDeviceName = msg.getData().getString(Constants.DEVICE_NAME);
                     if (null != activity) {
-                        Toast.makeText(activity, "Connected to "
+                        Toast.makeText(activity, "连接到"
                                 + mConnectedDeviceName, Toast.LENGTH_SHORT).show();
                     }
                     break;

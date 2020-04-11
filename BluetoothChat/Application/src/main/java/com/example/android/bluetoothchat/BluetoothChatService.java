@@ -43,10 +43,22 @@ public class BluetoothChatService {
     private static final String TAG = "BluetoothChatService";
 
     // Name for the SDP record when creating server socket
+    //创建服务器套接字时SDP记录的名称
     private static final String NAME_SECURE = "BluetoothChatSecure";
     private static final String NAME_INSECURE = "BluetoothChatInsecure";
 
     // Unique UUID for this application
+    /**
+     * UUID是一种通用唯一识别码，而且本机生成不耗费资源，目的是用于分布式环境中唯一生成标志码，是由32个16进制数组成，
+     *
+     * 主要包括三部分：
+     *
+     * (1)当前日期和时间，UUID的第一个部分是当前日期和时间，如果你在生成一个UUID之后，过几秒又生成一个UUID，则第一个部分不同，其余相同。
+     *
+     * (2)时钟序列
+     *
+     * (3)全局唯一的IEEE机器识别号（如果有网卡，从网卡获得，没有网卡以其他方式获得）
+     */
     private static final UUID MY_UUID_SECURE =
             UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
     private static final UUID MY_UUID_INSECURE =
@@ -493,7 +505,7 @@ public class BluetoothChatService {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
 
-                    // Send the obtained bytes to the UI Activity
+                    // 把读取的消息回调到主线程中
                     mHandler.obtainMessage(Constants.MESSAGE_READ, bytes, -1, buffer)
                             .sendToTarget();
                 } catch (IOException e) {
@@ -513,7 +525,7 @@ public class BluetoothChatService {
             try {
                 mmOutStream.write(buffer);
 
-                // Share the sent message back to the UI Activity
+                // 将发送的消息共享回UI活动 在子线程共享到主线程
                 mHandler.obtainMessage(Constants.MESSAGE_WRITE, -1, -1, buffer)
                         .sendToTarget();
             } catch (IOException e) {

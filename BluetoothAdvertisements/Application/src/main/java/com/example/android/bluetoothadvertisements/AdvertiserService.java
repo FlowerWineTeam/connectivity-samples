@@ -190,8 +190,9 @@ public class AdvertiserService extends Service {
          */
 
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
-        dataBuilder.addServiceUuid(Constants.Service_UUID);
-        dataBuilder.setIncludeDeviceName(true);
+        // TODO: 2020/4/11  
+//        dataBuilder.addServiceUuid(Constants.Service_UUID);
+//        dataBuilder.setIncludeDeviceName(true);
 
         /* For example - this will cause advertising to fail (exceeds size limit) */
         //String failureData = "asdghkajsghalkxcjhfa;sghtalksjcfhalskfjhasldkjfhdskf";
@@ -203,6 +204,10 @@ public class AdvertiserService extends Service {
     /**
      * Returns an AdvertiseSettings object set to use low power (to help preserve battery life)
      * and disable the built-in timeout since this code uses its own timeout runnable.
+     */
+    /***
+     * 低功耗的扫描蓝牙
+     * @return
      */
     private AdvertiseSettings buildAdvertiseSettings() {
         AdvertiseSettings.Builder settingsBuilder = new AdvertiseSettings.Builder();

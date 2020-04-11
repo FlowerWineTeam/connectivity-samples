@@ -16,6 +16,7 @@
 
 package com.example.android.bluetoothadvertisements;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
@@ -25,6 +26,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * Setup display fragments and ensure the device supports Bluetooth.
@@ -38,6 +41,23 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle(R.string.activity_main_title);
+
+
+
+        if (EasyPermissions.hasPermissions(this, Manifest.permission.BLUETOOTH_ADMIN,
+                Manifest.permission.BLUETOOTH)) {
+            System.out.println("shiming yes");
+        } else {
+            System.out.println("shiming no");
+            EasyPermissions.requestPermissions(
+                    MainActivity.this,
+                    "dddddd",
+                    1000,
+                    Manifest.permission.BLUETOOTH_ADMIN,
+                    Manifest.permission.BLUETOOTH
+            );
+        }
+
 
         if (savedInstanceState == null) {
 

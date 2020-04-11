@@ -42,6 +42,13 @@ import java.util.Set;
  * by the user, the MAC address of the device is sent back to the parent
  * Activity in the result Intent.
  */
+
+/**
+ * *此活动显示为一个对话框。它列出了所有配对的设备和
+ * *发现后在该区域检测到设备。选择设备时
+ * *用户将设备的MAC地址发送回父设备
+ * *结果意图中的活动。
+ */
 public class DeviceListActivity extends Activity {
 
     /**

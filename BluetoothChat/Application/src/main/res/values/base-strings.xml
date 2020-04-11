@@ -16,18 +16,18 @@
 -->
 
 <resources>
-    <string name="app_name">BluetoothChat</string>
+    <string name="app_name">蓝牙聊天</string>
     <string name="intro_message">
         <![CDATA[
         
             
-            This application allows two Android devices to carry out two-way text chat over
-            Bluetooth. It demonstrates all the fundamental Bluetooth API capabilities, such as:
-              (1) Scanning for other Bluetooth devices
-              (2) Querying the local Bluetooth adapter for paired Bluetooth devices
-              (3) Establishing RFCOMM channels/sockets
-              (4) Connecting to a remote device
-              (5) Transferring data over Bluetooth
+     这个应用程序允许两个Android设备进行双向文本聊天
+蓝牙。它演示了所有基本的蓝牙API功能，例如：
+（1） 正在扫描其他蓝牙设备
+（2） 为配对的蓝牙设备查询本地蓝牙适配器
+（3） 建立RFCOMM信道/套接字
+（4） 连接到远程设备
+（5） 通过蓝牙传输数据
             
         
         ]]>

@@ -23,6 +23,15 @@ package com.example.android.common.logger;
  * Most of the methods in this class server only to map a method call in Log to its equivalent
  * in LogNode.</p>
  */
+
+/**
+ * *LoggerNodes列表（或树）的助手类。
+ * *
+ * *<p>当这个设置为列表的头时，
+ * *它的一个实例可以作为{@link android.util.Log}的替代品。
+ * *这个类服务器中的大多数方法只将日志中的方法调用映射到其等效的
+ * *在LogNode中</p>
+ */
 public class Log {
     // Grabbing the native values from Android's native logging facilities,
     // to make for easy migration and interop.
